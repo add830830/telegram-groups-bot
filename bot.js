@@ -40,7 +40,15 @@ bot.action('null', (ctx) => {
     ctx.answerCbQuery() })
 
 //lanuch bot
-bot.launch()
+bot.launch({
+  webhook: {
+    domain: 'https://telegram-groups-bot.vercel.app',
+    hookPath: '/bot',
+  },
+}
+
+
+)
 //enable graceful stop
 process.once('SIGINT', () => bot.stop('SIGINT'))
 process.once('SIGTERM', () => bot.stop('SIGTERM'))
